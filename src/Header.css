@@ -1,0 +1,262 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+.Header {
+  width: 100%;
+  background-color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.TopBar {
+  height: 40px;
+  background: linear-gradient(to right, #000428, #002687);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-weight: bold;
+}
+
+.TopBar .Link {
+  font-size: 14px;
+  color: #ffffff;
+  padding: 0 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.TopBar .Link:hover {
+  color: #f0f0f0;
+}
+
+.MainHeader {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.MainHeader .Link {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  padding: 0 15px;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.MainHeader .Link:hover {
+  color: #ffffff;
+}
+
+.MainHeader .Link::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease-in-out;
+}
+
+.MainHeader .Link:hover::before {
+  width: 100%;
+}
+
+.LeftPlaceholder,
+.RightPlaceholder {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.MiddlePlaceholder {
+  color: white;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.SearchBar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchBar form {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 5px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.SearchBar input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.SearchBar button {
+  background-color: #002687;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.SearchBar button:hover {
+  background-color: #000428;
+}
+
+/* Categories Dropdown */
+.CategoriesDropdown {
+  position: relative;
+}
+
+.CategoriesMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  min-width: 600px;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+.CategoriesDropdown.open .CategoriesMenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.CategoryLink {
+  font-size: 16px;
+  color: #333333;
+  transition: color 0.3s ease-in-out;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  text-align: center;
+  font-weight: bold;
+}
+
+.CategoryLink:hover {
+  color: #ffffff;
+  background-color: #002687;
+}
+
+/* Icon Styles */
+.Icon {
+  font-size: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .MainHeader {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .LeftPlaceholder,
+  .RightPlaceholder {
+    gap: 20px;
+  }
+
+  .SearchBar {
+    margin-top: 20px;
+  }
+
+  .CategoriesMenu {
+    min-width: auto;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .TopBar {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .TopBar .Link {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .MainHeader .Link {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .SearchBar form {
+    max-width: 100%;
+  }
+
+  .CategoriesMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .MainHeader .Link {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  .LeftPlaceholder,
+  .RightPlaceholder {
+    gap: 10px;
+  }
+
+  .SearchBar input {
+    font-size: 14px;
+  }
+
+  .SearchBar button {
+    padding: 6px 10px;
+  }
+
+  .CategoryLink {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
